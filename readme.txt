@@ -4,7 +4,7 @@ Donate link: http://blog.bossma.cn/
 Tags: wechat, sharing, 微信, 分享
 Requires at least: 4.0
 Tested up to: 4.8
-Stable tag: 0.1.0
+Stable tag: 0.1.1
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -54,7 +54,13 @@ License URI: https://www.gnu.org/licenses/gpl-2.0.html
 = 0.1.0 =
 * 第一个版本，仅支持文章分享给朋友和分享到朋友圈。
 
+= 0.1.1 =
+* 对Get、Post参数进行处理，增强安全性。
+
 == Upgrade Notice ==
 
 = 0.1.0 =
 * 第一个版本，仅支持文章分享给朋友和分享到朋友圈。
+
+= 0.1.1 =
+* 对Get、Post参数进行处理，增强安全性。

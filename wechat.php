@@ -2,9 +2,6 @@
 
 require_once 'sharing-config.php';
 
-// WeChat数据目录
-define('BOSIMA_WECHAT_DATAPATH', dirname(__FILE__).'/config/');
-
 /**
  * 微信帮助类.
  */
@@ -16,15 +13,20 @@ class Bosima_WeChat
     //静态变量保存全局实例
     private static $instance = null;
 
+    // WeChat数据目录
+    private $dataPath = null;
+
     /**
      * 私有构造函数，防止外界实例化对象
      */
     private function __construct()
     {
-        if (!is_dir(BOSIMA_WECHAT_DATAPATH)) {
-            mkdir(BOSIMA_WECHAT_DATAPATH, 0700, $recursive = true);
-        }
+        $this->dataPath = dirname(__FILE__).'/config/';
 
+        if (!is_dir($this->dataPath)) {
+            mkdir($this->dataPath, 0700, $recursive = true);
+        }
+        
         $this->initConfig();
     }
 
@@ -101,7 +103,7 @@ class Bosima_WeChat
      */
     private function initConfigFormFile()
     {
-        $configPath = BOSIMA_WECHAT_DATAPATH.'data.php';
+        $configPath = $this->dataPath.'data.php';
         if (file_exists($configPath)) {
             $configContent = trim(substr(file_get_contents($configPath), 15));
 
@@ -122,7 +124,7 @@ class Bosima_WeChat
     private function updateConfigFile()
     {
         // 对于写文件进行加锁
-        $lock = BOSIMA_WECHAT_DATAPATH.'config.lck';
+        $lock = $this->dataPath.'config.lck';
 
         try {
             while (true) {
@@ -130,7 +132,7 @@ class Bosima_WeChat
                     usleep(100);
                 } else {
                     touch($lock);
-                    $configPath = BOSIMA_WECHAT_DATAPATH.'data.php';
+                    $configPath = $this->dataPath.'data.php';
                     $content = json_encode($this->config);
                     file_put_contents($configPath, '<?php exit();?>'.$content);
 

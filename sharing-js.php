@@ -1,7 +1,8 @@
 <?php
+
 require_once 'wechat.php';
 
-$referPage = $_GET['refurl'];
+$referPage = filter_var($_GET['refurl'], FILTER_VALIDATE_URL);
 
 $weChat = Bosima_WeChat::getInstance();
 $signPackage = $weChat->getSign($referPage);
