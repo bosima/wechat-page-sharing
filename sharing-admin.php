@@ -1,6 +1,7 @@
 <?php
-ini_set("display_errors", "On");
-error_reporting(E_ALL | E_STRICT);
+if (!defined('ABSPATH')) {
+    exit();
+}
 
 require_once 'wechat.php';
 
@@ -29,15 +30,15 @@ class Bosima_WeChat_Page_Sharing_Admin
 
         $weChat = Bosima_WeChat::getInstance();
         $config = $weChat->getWeChatConfig();
-        $wechat_appid = $config->appId;
-        $wechat_appsecrect = $config->appSecrect;
+        $wechat_appid = esc_attr($config->appId);
+        $wechat_appsecrect = esc_attr($config->appSecrect);
 
         // See if the user has posted us some information
         // If they did, this hidden field will be set to 'Y'
         if (isset($_POST[$hidden_field_name]) && $_POST[$hidden_field_name] == 'Y') {
             // Read their posted value
-            $wechat_appid = $_POST[$appid_field_name];
-            $wechat_appsecrect = $_POST[$appsecrect_field_name];
+            $wechat_appid = sanitize_text_field($_POST[$appid_field_name]);
+            $wechat_appsecrect = sanitize_text_field($_POST[$appsecrect_field_name]);
 
             // Save the posted value in the database
             $weChat->updateStaticConfig($wechat_appid, $wechat_appsecrect);

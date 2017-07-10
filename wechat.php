@@ -1,4 +1,7 @@
 <?php
+if (!defined('ABSPATH')) {
+    exit();
+}
 
 require_once 'sharing-config.php';
 

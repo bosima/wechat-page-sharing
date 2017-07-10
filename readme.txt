@@ -1,4 +1,4 @@
-=== WeChat Page Sharing ===
+=== Bosima WeChat Page Sharing ===
 Contributors: bossma
 Donate link: http://blog.bossma.cn/
 Tags: wechat, sharing, 微信, 分享
@@ -29,7 +29,6 @@ License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
 安装完毕。
 
-
 == Frequently Asked Questions ==
 
 = 如何获取网站所在服务器的外网出口IP？ =
@@ -43,7 +42,7 @@ License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
 = 这个插件和缓存插件冲突吗？ =
 
-分享用的签名数据每次都通过javascript请求获得，和页面缓存没有冲突。
+分享用的签名数据每次都通过javascript动态请求获得，和页面缓存没有冲突。
 
 == Screenshots ==
 
@@ -58,3 +57,11 @@ License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
 = 0.1.0 =
 * 第一个版本，仅支持文章分享给朋友和分享到朋友圈。
+
+== Dependency ==
+
+= WeChat JS-SDK =
+https://res.wx.qq.com/open/js/jweixin-1.2.0.js
+This plugin depends on the WeChat JS-SDK, which is a remote JS file and provided by WeChat.
+It provides initialization method of WeChat services, and provide some functions, including share to friends, share to circle of friends.
+The JS-SDK is a service.

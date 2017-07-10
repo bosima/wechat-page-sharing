@@ -1,4 +1,8 @@
 <?php
+if (!defined('ABSPATH')) {
+    exit();
+}
+
 /**
  * 微信访问配置.
  */
