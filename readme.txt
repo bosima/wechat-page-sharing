@@ -76,5 +76,5 @@ The JS-SDK is a service.
 
 == ip.chinaz.com ==
 http://ip.chinaz.com/getip.aspx
-This plugin depends on the ip.chinaz.com, which can return the exit IP of the wordpress server.
+This plugin depends on the ip.chinaz.com, which can return the exit IP of the user server.
 The exit IP needs to be added to the WeChat IP whitelist.
