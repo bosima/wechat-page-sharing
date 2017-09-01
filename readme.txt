@@ -3,8 +3,8 @@ Contributors: bossma
 Donate link: http://blog.bossma.cn/
 Tags: wechat, sharing, 微信, 分享
 Requires at least: 4.0
-Tested up to: 4.8
-Stable tag: 0.2.0
+Tested up to: 4.8.1
+Stable tag: 0.2.1
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
