@@ -87,6 +87,20 @@ class Bosima_WeChat
 
         return $signPackage;
     }
+    
+    /**
+     * 获取服务器出口IP.
+     */
+    public static function getOutIp(){
+        $response = wp_remote_get("http://ip.chinaz.com/getip.aspx");
+        $body = wp_remote_retrieve_body($response);
+
+        // body example:document.write("{ip:'123.120.27.98',address:'北京市 联通'}")
+        $ipArray = explode(',',$body);
+        $ip = str_replace('document.write("{ip:','',$ipArray[0]);
+        $ip=trim($ip,'\'');
+        return $ip;
+    }
 
     /**
      * 从缓存获取配置信息.

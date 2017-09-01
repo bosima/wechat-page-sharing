@@ -34,7 +34,7 @@ License URI: https://www.gnu.org/licenses/gpl-2.0.html
 = 如何获取网站所在服务器的外网出口IP？ =
 
 1、直接询问您的主机服务商；
-2、将sharing-js.php中的debug:false设置为true，访问文章时会弹出错误提示，其中包含出口IP。
+2、在“Wordpress管理后台”-“设置”-“微信分享设置”中查看。
 
 = 微信公众号可以是个人账号吗？ =
 
@@ -53,11 +53,17 @@ License URI: https://www.gnu.org/licenses/gpl-2.0.html
 = 0.2.0 =
 * 第一个版本，仅支持文章分享给朋友和分享到朋友圈。
 
+= 0.2.1 =
+* 增加显示服务器出口IP功能，方便在微信“安全中心”-“IP白名单”中进行配置。
+
 
 == Upgrade Notice ==
 
 = 0.2.0 =
 * 第一个版本，仅支持文章分享给朋友和分享到朋友圈。
+
+= 0.2.1 =
+* 增加显示服务器出口IP功能，方便在微信“安全中心”-“IP白名单”中进行配置。
 
 
 == Dependency ==
@@ -67,3 +73,8 @@ https://res.wx.qq.com/open/js/jweixin-1.2.0.js
 This plugin depends on the WeChat JS-SDK, which is a remote JS file and provided by WeChat.
 It provides initialization method of WeChat services, and provide some functions, including share to friends, share to circle of friends.
 The JS-SDK is a service.
+
+== ip.chinaz.com ==
+http://ip.chinaz.com/getip.aspx
+This plugin get the exit IP of the wordpress server by this url.
+The exit IP needs to be added to the WeChat IP whitelist.
