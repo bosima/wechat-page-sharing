@@ -50,19 +50,15 @@ License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
 == Changelog ==
 
-= 0.1.0 =
+= 0.2.0 =
 * 第一个版本，仅支持文章分享给朋友和分享到朋友圈。
 
-= 0.2.0 =
-* 修改WordPress官方Review的问题，重大改动为动态生成JS修改为Ajax模式。
 
 == Upgrade Notice ==
 
-= 0.1.0 =
+= 0.2.0 =
 * 第一个版本，仅支持文章分享给朋友和分享到朋友圈。
 
-= 0.2.0 =
-* 修改WordPress官方Review的问题。
 
 == Dependency ==
 

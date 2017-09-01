@@ -1,4 +1,5 @@
 <?php
+
 if (!defined('ABSPATH')) {
     exit();
 }
@@ -261,28 +262,14 @@ class Bosima_WeChat
      * curl get请求
      *
      * @param url 请求地址
-     * @param sign 签名
-     * @param timeout 请求超时时间
      *
      * @return 请求响应数据
      */
-    private function doCurl($url, $timeout = 10, $method = 'GET')
+    private function doCurl($url)
     {
-        $ch = curl_init();
+        $response = wp_remote_get($url);
+        $body = wp_remote_retrieve_body($response);
 
-        if ($method == 'POST') {
-            curl_setopt($ch, CURLOPT_POST, 1);
-        }
-
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-        curl_setopt($ch, CURLOPT_TIMEOUT, (int) $timeout);
-        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, true);
-        curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 2);
-        curl_setopt($ch, CURLOPT_URL, $url);
-
-        $result = curl_exec($ch);
-        curl_close($ch);
-
-        return $result;
+        return $body;
     }
 }

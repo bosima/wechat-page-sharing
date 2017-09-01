@@ -7,6 +7,8 @@ require_once 'wechat.php';
 
 class Bosima_WeChat_Page_Sharing_Admin
 {
+    const NONCENAME='bosima-wechat-appconfig-update';
+
     public static function init()
     {
         add_action('admin_menu', array('Bosima_WeChat_Page_Sharing_Admin', 'admin_menu'));
@@ -36,6 +38,9 @@ class Bosima_WeChat_Page_Sharing_Admin
         // See if the user has posted us some information
         // If they did, this hidden field will be set to 'Y'
         if (isset($_POST[$hidden_field_name]) && $_POST[$hidden_field_name] == 'Y') {
+
+            check_admin_referer(self::NONCENAME);
+
             // Read their posted value
             $wechat_appid = sanitize_text_field($_POST[$appid_field_name]);
             $wechat_appsecrect = sanitize_text_field($_POST[$appsecrect_field_name]);
@@ -52,6 +57,8 @@ class Bosima_WeChat_Page_Sharing_Admin
         echo '<div class="wrap">';
         echo '<h2>'.__('WeChat Page Sharing Plugin Settings', 'wechat-page-sharing').'</h2>'; ?>
             <form name="form1" method="post" action="">
+
+            <?php wp_nonce_field(self::NONCENAME) ?>
             <input type="hidden" name="<?php echo $hidden_field_name; ?>" value="Y">
             <p><?php _e('WeChat AppId:', 'wechat-page-sharing'); ?> 
             <input type="text" name="<?php echo $appid_field_name; ?>" value="<?php echo $wechat_appid; ?>" size="30">
