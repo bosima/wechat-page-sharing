@@ -6,8 +6,9 @@ if (!defined('ABSPATH')) {
 
 require_once 'sharing-config.php';
 
+// 将数据放到wp-content目录下，免得控制台升级造成配置数据被删除
 // WeChat数据目录
-define('BOSIMA_WECHAT_DATAPATH', dirname(__FILE__).'/config/');
+define('BOSIMA_WECHAT_DATAPATH', WP_CONTENT_DIR.'/bps-wechat/config/');
 
 /**
  * 微信帮助类.
