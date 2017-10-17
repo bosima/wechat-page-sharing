@@ -81,9 +81,9 @@ class Bosima_WeChat
         'appId' => $this->config->appId,
         'nonceStr' => $nonceStr,
         'timestamp' => $timestamp,
-        'url' => $url,
+        //'url' => $url,
         'signature' => $signature,
-        'rawString' => $string,
+        //'rawString' => $string,
         );
 
         return $signPackage;

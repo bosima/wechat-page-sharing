@@ -66,7 +66,7 @@ class Bosima_WeChat_Page_Sharing_Admin
             <p><?php _e('WeChat AppSecrect:', 'wechat-page-sharing'); ?> 
             <input type="text" name="<?php echo $appsecrect_field_name; ?>" value="<?php echo $wechat_appsecrect; ?>" size="40">
             </p>
-            <p><?php _e('Server Exit IP:', 'wechat-page-sharing'); ?>
+            <p><?php _e('Server Outbound IP:', 'wechat-page-sharing'); ?>
             <?php
             $host = gethostbyname($_SERVER['SERVER_NAME']);
             echo Bosima_WeChat::getOutIp();
