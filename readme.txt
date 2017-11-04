@@ -4,7 +4,7 @@ Donate link: http://blog.bossma.cn/
 Tags: wechat, sharing, 微信, 分享
 Requires at least: 4.0
 Tested up to: 4.8.1
-Stable tag: 0.2.1
+Stable tag: 0.2.2
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -56,6 +56,11 @@ License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
 == Changelog ==
 
+= 0.2.2 = 
+* 修改Exit IP为Outbound IP;
+* 注释签名包中调试用的url和原始签名字符串，防止信息泄露。
+
+
 = 0.2.1 =
 * 增加显示服务器出口IP功能，方便在微信“安全中心”-“IP白名单”中进行配置。
 * 更改微信配置参数保存位置，防止控制台升级后丢失；但从0.2.0升级后仍会丢失，需重新配置。
@@ -65,6 +70,10 @@ License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
 
 == Upgrade Notice ==
+
+= 0.2.2 = 
+* 修改Exit IP为Outbound IP;
+* 注释签名包中调试用的url和原始签名字符串，防止信息泄露。
 
 = 0.2.1 =
 * 增加显示服务器出口IP功能，方便在微信“安全中心”-“IP白名单”中进行配置。
