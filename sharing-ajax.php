@@ -25,7 +25,7 @@ class Bosima_WeChat_Page_Sharing_Ajax
      */
     public static function getWeChatJsSign()
     {
-        $cur_url = sanitize_text_field(urldecode($_GET['cur_url']));
+        $cur_url = esc_url(urldecode($_GET['cur_url']));
         $weChat = Bosima_WeChat::getInstance();
         $signPackage = $weChat->getSign($cur_url);
 
