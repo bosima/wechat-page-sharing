@@ -66,6 +66,7 @@ class Bosima_WeChat_Page_Sharing_Page
         if(is_single()){
             $share_title=$post->post_title;
             $share_img_url=get_post_img_url($post->post_content);
+            // todo:摘要内容可能没有或者长度太长
             $share_desc=wp_strip_all_tags( $post->post_excerpt);
         }elseif (is_page()) {
             $share_img_url=get_post_img_url($post->post_content);
