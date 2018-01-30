@@ -179,8 +179,6 @@ class Bosima_WeChat_Page_Sharing_Page
     */
     public static function render_js(){
             wp_enqueue_script('weixin-js','https://res.wx.qq.com/open/js/jweixin-1.2.0.js');
-
-            $cur_protocol = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off' || $_SERVER['SERVER_PORT'] == 443) ? 'https://' : 'http://';
     ?>
             <script>
             jQuery(document).ready(function(){
@@ -201,6 +199,8 @@ class Bosima_WeChat_Page_Sharing_Page
                 },'json');
             <?php
             }else{
+                $cur_protocol = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off' || $_SERVER['SERVER_PORT'] == 443) ? 'https://' : 'http://';
+                $cur_url = "$cur_protocol$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
                 $weChat = Bosima_WeChat::getInstance();
                 $signPackage = $weChat->getSign($cur_url);
                 echo 'var weChatJsSign = '.json_encode($signPackage).';';

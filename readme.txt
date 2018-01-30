@@ -3,8 +3,8 @@ Contributors: bossma
 Donate link: http://blog.bossma.cn/
 Tags: wechat, sharing, 微信, 分享
 Requires at least: 4.0
-Tested up to: 4.8.1
-Stable tag: 0.2.2
+Tested up to: 4.9.2
+Stable tag: 0.3.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -16,8 +16,11 @@ License URI: https://www.gnu.org/licenses/gpl-2.0.html
 本插件通过集成微信提供的JS-SDK，从而实现自定义网页分享的内容，包括Url、标题、图片和内容。
 
 1、本着简单的原则，分享的内容将全部从Wordpress原生的数据结构中提取，尽量不让用户再填写。
-2、目前仅实现了文章的分享给朋友和分享到朋友圈，后续会增加其它页面的分享功能。
-3、对于文章分享：标题为文章标题、图片为文章内容中的第一张图片，内容为文章摘要。
+2、目前已实现首页、分类页、文章页、标签页、搜索页、存档页以及单独页面分享给朋友和分享到朋友圈。
+3、对于文章分享：标题为文章标题、图片为文章内容中的第一张图片，描述为文章摘要。
+4、对于单独页面分享：标题为页面标题+站点名称、图片为页面内容中的第一张图片。
+5、对于其它页面分享：标题为页面标题+站点名称，图片为页面中第一张长和宽都大于100像素的图片。
+6、对于文章之外的页面分享：描述首先从html的name=description的meta标签获取，如果没有则使用本插件自动生成的一句话。
 
 == Installation ==
 
@@ -37,24 +40,34 @@ License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
 == Frequently Asked Questions ==
 
-= 如何获取网站所在服务器的外网出口IP？ =
+= 微信IP白名单中需要的IP是域名解析到的IP吗？ =
 
-1、直接询问您的主机服务商；
+这两个IP可能是同一个，也可能不是。
+微信IP白名单中的IP是网站所在服务器的外网出口IP，也就是服务器访问外部网络资源时暴漏的IP。
+
+= 如获取获取微信IP白名单中需要的IP？ =
+
+1、直接询问您的主机服务商服务器的外网出口IP；
 2、在“Wordpress管理后台”-“设置”-“微信分享设置”中查看。
 
 = 微信公众号可以是个人账号吗？ =
 
-可以。
+现在不可以，需要是认证过的企业账号。
+如果你是很久之前注册的，有可能具备分享接口权限，请登陆微信公众号平台查看。
 
 = 这个插件和缓存插件冲突吗？ =
 
-分享用的签名数据每次都通过javascript动态请求获得，和页面缓存没有冲突。
+没有冲突，对于启用缓存插件的WordPress，本插件将自动使用Ajax的方式实现页面分享。
 
 == Screenshots ==
 
 1. screenshot-1.png
 
 == Changelog ==
+
+= 0.3.0 = 
+* 解决了Url中含有中文时签名无效的问题;
+* 增加了首页、分类页、标签页、搜索页、存档页以及单独页面的分享。
 
 = 0.2.2 = 
 * 修改Exit IP为Outbound IP;
@@ -70,6 +83,10 @@ License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
 
 == Upgrade Notice ==
+
+= 0.3.0 = 
+* 解决了Url中含有中文时签名无效的问题;
+* 增加了首页、分类页、标签页、搜索页、存档页以及单独页面的分享。
 
 = 0.2.2 = 
 * 修改Exit IP为Outbound IP;
