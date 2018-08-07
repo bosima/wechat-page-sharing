@@ -1,0 +1,145 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: wechat-page-sharing-lang\n"
+"POT-Creation-Date: 2018-08-06 00:54+0800\n"
+"PO-Revision-Date: 2018-08-06 00:55+0800\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: zh-CN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.5.7\n"
+"X-Poedit-KeywordsList: _e;__\n"
+"X-Poedit-Basepath: .\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-SearchPath-0: ..\n"
+
+#: ../sharing-admin.php:26
+msgid "You do not have sufficient permissions to access this page."
+msgstr "您没有足够的权限访问此页面。"
+
+#: ../sharing-admin.php:82
+msgid "settings saved."
+msgstr "设置保存成功。"
+
+#: ../sharing-admin.php:106
+msgid "WeChat Page Sharing Plugin Settings"
+msgstr "微信分享设置"
+
+#: ../sharing-admin.php:112
+msgid "WeChat Settings"
+msgstr "微信设置"
+
+#: ../sharing-admin.php:113
+msgid "WeChat AppId:"
+msgstr "微信AppId："
+
+#: ../sharing-admin.php:116
+msgid "WeChat AppSecrect:"
+msgstr "微信AppSecrect："
+
+#: ../sharing-admin.php:119
+msgid "Server Outbound IP:"
+msgstr "服务器出口IP："
+
+#: ../sharing-admin.php:126
+msgid "Template Settings"
+msgstr "模板设置"
+
+#: ../sharing-admin.php:127
+msgid "Sharing Template Memo"
+msgstr ""
+"以下模板如果不设置，会使用默认标题和描述，默认标题为html->head->title中的内"
+"容，如果没有则使用本程序自定义的一句话；默认描述优先使用html->head->meta"
+"[name='description']的内容，如果没有则使用本程序自定义的一句话。"
+
+#: ../sharing-admin.php:128
+msgid "Sharing Home Title Template:"
+msgstr "首页分享标题模板："
+
+#: ../sharing-admin.php:130 ../sharing-admin.php:134 ../sharing-admin.php:142
+#: ../sharing-admin.php:146 ../sharing-admin.php:150 ../sharing-admin.php:154
+#: ../sharing-admin.php:158 ../sharing-admin.php:162 ../sharing-admin.php:166
+#: ../sharing-admin.php:170 ../sharing-admin.php:174 ../sharing-admin.php:178
+#: ../sharing-admin.php:182
+msgid "Valid Variable Label:"
+msgstr "可用标签："
+
+#: ../sharing-admin.php:132
+msgid "Sharing Home Description Template:"
+msgstr "首页分享描述模板："
+
+#: ../sharing-admin.php:136
+msgid "Sharing Home Image Use Site Icon:"
+msgstr "首页分享图标使用网站图标："
+
+#: ../sharing-admin.php:137
+msgid "Use"
+msgstr "使用"
+
+#: ../sharing-admin.php:138
+msgid "Not Use"
+msgstr "不使用"
+
+#: ../sharing-admin.php:140
+msgid "Sharing Category Title Template:"
+msgstr "分类页分享标题模板："
+
+#: ../sharing-admin.php:144
+msgid "Sharing Single Title Template:"
+msgstr "文章页分享标题模板："
+
+#: ../sharing-admin.php:148
+msgid "Sharing Single Description Template:"
+msgstr "文章页分享描述模板："
+
+#: ../sharing-admin.php:152
+msgid "Sharing Page Title Template:"
+msgstr "页面分享标题模板："
+
+#: ../sharing-admin.php:156
+msgid "Sharing Page Description Template:"
+msgstr "页面分享描述模板："
+
+#: ../sharing-admin.php:160
+msgid "Sharing Tag Title Template:"
+msgstr "标签页分享标题模板："
+
+#: ../sharing-admin.php:164
+msgid "Sharing Tag Description Template:"
+msgstr "标签页分享描述模板："
+
+#: ../sharing-admin.php:168
+msgid "Sharing Archive Title Template:"
+msgstr "归档页分享标题模板："
+
+#: ../sharing-admin.php:172
+msgid "Sharing Archive Description Template:"
+msgstr "归档页分享描述模板："
+
+#: ../sharing-admin.php:176
+msgid "Sharing Search Title Template:"
+msgstr "搜索页分享标题模板："
+
+#: ../sharing-admin.php:180
+msgid "Sharing Search Description Template:"
+msgstr "搜索页分享描述模板："
+
+#: ../sharing-admin.php:184
+msgid "Sharing Image Option:"
+msgstr "分享图标使用的图片来源："
+
+#: ../sharing-admin.php:185
+msgid "Post Featued Image"
+msgstr "文章特色图片"
+
+#: ../sharing-admin.php:186
+msgid "Post First Image"
+msgstr "文章首张图片"
+
+#: ../sharing-admin.php:187
+msgid "Sharing Image Option Memo:"
+msgstr ""
+"如果来源选择了“文章特色图片”，但是文章没有设置，会尝试“文章首张图片”，如果还"
+"找不到会随机给一张。"

@@ -2,9 +2,9 @@
 Contributors: bossma
 Donate link: http://blog.bossma.cn/
 Tags: wechat, sharing, 微信, 分享
-Requires at least: 4.0
-Tested up to: 4.9.2
-Stable tag: 0.3.0
+Requires at least: 4.4
+Tested up to: 4.9.8
+Stable tag: 0.3.1
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -15,21 +15,21 @@ License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
 本插件通过集成微信提供的JS-SDK，从而实现自定义网页分享的内容，包括Url、标题、图片和内容。
 
-1、本着简单的原则，分享的内容将全部从Wordpress原生的数据结构中提取，尽量不让用户再填写。
-2、目前已实现首页、分类页、文章页、标签页、搜索页、存档页以及单独页面分享给朋友和分享到朋友圈。
-3、对于文章分享：标题为文章标题、图片为文章内容中的第一张图片，描述为文章摘要。
-4、对于单独页面分享：标题为页面标题+站点名称、图片为页面内容中的第一张图片。
-5、对于其它页面分享：标题为页面标题+站点名称，图片为页面中第一张长和宽都大于100像素的图片。
-6、对于文章之外的页面分享：描述首先从html的name=description的meta标签获取，如果没有则使用本插件自动生成的一句话。
+1、本插件简单灵活，分享的内容可全部从页面提取，也可在后台自定义。
+2、目前已实现首页、分类页、文章页、标签页、搜索页、存档页以及单独页面的分享。
+3、分享目标支持微信朋友、微信朋友圈、QQ、QQ空间。
+4、分享标题、图片、描述等内容首先从自定义模板提取，如果未设置模板则从页面提取，如果页面上提取不到则根据当前页面内容自动生成。
+5、从页面提取时，各个分享内容的来源：标题来源于html->head->title，描述从html->head->meta[name='description']提取，图片取正文中的第一张图。
+6、分享url目前只能是当前url，未提供自定义设置功能。
 
 == Installation ==
 
 1、在您的Wordpress管理后台安装本插件或者通过上传文件夹到Wordpress插件目录的方式安装本插件；
 2、启用插件；
 3、注册一个微信公众号，访问地址：https://mp.weixin.qq.com；
-4、在“Wordpress管理后台”-“设置”-“微信分享设置”中获取服务器出口IP（如果未出现，多刷新几次），填写到“微信公众平台”-“安全中心”-“IP白名单”中；
+4、在“Wordpress管理后台”-“设置”-“微信分享设置”中获取服务器出口IP，填写到“微信公众平台”-“安全中心”-“IP白名单”中；
 5、在“微信公众平台”-“公众号设置”-“功能设置”-“JS接口安全域名”中填写您网站的域名；
-6、在“Wordpress管理后台”-“设置”-“微信分享设置”中填写您微信公众号的AppID和AppSecrect（在“微信公众平台”-“基本配置”中）。
+6、在“Wordpress管理后台”-“设置”-“微信分享设置”中填写您微信公众号的AppID和AppSecrect（从“微信公众平台”-“基本配置”中获取）。
 
 安装完毕。
 
@@ -65,6 +65,16 @@ License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
 == Changelog ==
 
+= 0.3.1 = 
+* 增加了分享标题和描述的模板设置功能，让分享更个性化；
+* 增加了首页分享使用网站Icon的选择；
+* 增加了单篇文章分享使用特色图片的选择；
+* 更换了从正文提取图片url时调用的方法为当前类的静态方法;
+* 更换了通过ajax方式生成签名时检查url的函数为esc_url_raw；
+* 为后台管理界面编写了多语言文件；
+* 更新了判断https协议的方法；
+* 更换了获取服务器出口IP的方法。
+
 = 0.3.0 = 
 * 解决了Url中含有中文时签名无效的问题;
 * 增加了首页、分类页、标签页、搜索页、存档页以及单独页面的分享。
@@ -83,6 +93,16 @@ License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
 
 == Upgrade Notice ==
+
+= 0.3.1 = 
+* 增加了分享标题和描述的模板设置功能，让分享更个性化；
+* 增加了首页分享使用网站Icon的选择；
+* 增加了单篇文章分享使用特色图片的选择；
+* 解决了从正文提取图片url时调用了主题方法的bug;
+* 解决了搜索页分享时获取当前url不正确的bug；
+* 后台管理界面增加了对多语言的支持；
+* 增强了对https协议的支持；
+* 提升了获取服务器出口IP的速度。
 
 = 0.3.0 = 
 * 解决了Url中含有中文时签名无效的问题;
@@ -108,7 +128,7 @@ This plugin depends on the WeChat JS-SDK, which is a remote JS file and provided
 It provides initialization method of WeChat services, and provide some functions, including share to friends, share to circle of friends.
 The JS-SDK is a service.
 
-= ip.chinaz.com =
-http://ip.chinaz.com/getip.aspx
-This plugin depends on the ip.chinaz.com, which can return the exit IP of the user server.
+= myip.fireflysoft.net =
+http://myip.fireflysoft.net
+This plugin depends on the myip.fireflysoft.net, which can return the exit IP of the user server.
 The exit IP needs to be added to the WeChat IP whitelist.

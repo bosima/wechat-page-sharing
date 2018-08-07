@@ -63,6 +63,14 @@ class Bosima_WeChat
         $this->updateConfigFile();
     }
 
+      /**
+     * 设置微信AppId.
+     */
+    public function updateAllConfig()
+    {
+        $this->updateConfigFile();
+    }
+
     /**
      * 获取JS用签名等相关信息.
      */
@@ -73,9 +81,9 @@ class Bosima_WeChat
         $nonceStr = $this->getNonceString();
 
         // 这里参数的顺序要按照 key 值 ASCII 码升序排序
-        $string = "jsapi_ticket=$jsapiTicket&noncestr=$nonceStr&timestamp=$timestamp&url=$url";
+        $signStr = "jsapi_ticket=$jsapiTicket&noncestr=$nonceStr&timestamp=$timestamp&url=$url";
 
-        $signature = sha1($string);
+        $signature = sha1($signStr);
 
         $signPackage = array(
         'appId' => $this->config->appId,
@@ -83,7 +91,7 @@ class Bosima_WeChat
         'timestamp' => $timestamp,
         //'url' => $url,
         'signature' => $signature,
-        //'rawString' => $string,
+        //'rawString' => $signStr,
         );
 
         return $signPackage;
@@ -93,14 +101,8 @@ class Bosima_WeChat
      * 获取服务器出口IP.
      */
     public static function getOutIp(){
-        $response = wp_remote_get("http://ip.chinaz.com/getip.aspx");
-        $body = wp_remote_retrieve_body($response);
-
-        // body example:document.write("{ip:'123.120.27.98',address:'北京市 联通'}")
-        $ipArray = explode(',',$body);
-        $ip = str_replace('document.write("{ip:','',$ipArray[0]);
-        $ip=trim($ip,'\'');
-        return $ip;
+        $response = wp_remote_get("http://myip.fireflysoft.net/");
+        return wp_remote_retrieve_body($response);
     }
 
     /**
