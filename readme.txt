@@ -4,7 +4,7 @@ Donate link: http://blog.bossma.cn/
 Tags: wechat, sharing, 微信, 分享
 Requires at least: 4.4
 Tested up to: 4.9.8
-Stable tag: 0.3.1
+Stable tag: 0.3.2
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -61,7 +61,9 @@ License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
 == Screenshots ==
 
-1. screenshot-1.png
+1. 基础设置和模板设置
+
+2、页面上生成的微信分享代码
 
 == Changelog ==
 
