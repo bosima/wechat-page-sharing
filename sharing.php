@@ -3,9 +3,9 @@
 Plugin Name: Bosima WeChat Page Sharing
 Plugin URI: https://github.com/bosima/wechat-page-sharing
 Description: 你可以控制Wordpress页面的微信分享内容，包括Url、标题、图片和内容。由于我的失误，<strong>从0.2.0版本升级到其他版本后需重新配置AppId和AppSecrect</strong>。
-Version: 0.3.1
+Version: 0.3.2
 Author: 波斯码(bossma)
-Author URI: https://blog.bossma.cn
+Author URI: http://blog.bossma.cn
 */
 
 /*  Copyright 2017  波斯码(bossma) (email : bossma@yeah.net)

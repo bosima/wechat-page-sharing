@@ -102,6 +102,9 @@ class Bosima_WeChat_Page_Sharing_Admin
         $sharing_single_title = esc_attr($config->sharing_single_title);
         $sharing_category_title = esc_attr($config->sharing_category_title);
 
+        $host_name = $_SERVER['SERVER_NAME'];
+        $out_ip = Bosima_WeChat::getOutIp();
+
         echo '<div class="wrap">';
         echo '<h2>'.__('WeChat Page Sharing Plugin Settings', 'wechat-page-sharing').'</h2>'; ?>
             <form name="form1" method="post" action="">
@@ -109,6 +112,15 @@ class Bosima_WeChat_Page_Sharing_Admin
             <?php wp_nonce_field(self::NONCENAME) ?>
             <input type="hidden" name="<?php echo $hidden_field_name; ?>" value="Y">
 
+            <h3><?php _e('Plugin Instructions', 'wechat-page-sharing'); ?> </h3>
+            <p><span style="font-size:14px;font-weight:bold">1.</span> <?php _e('Instructions Setp 1 Content', 'wechat-page-sharing'); ?></p>
+            <p><span style="font-size:14px;font-weight:bold">2.</span> <?php _e('Instructions Setp 2 Content', 'wechat-page-sharing'); ?><?php echo $out_ip ?></p>
+            <p><span style="font-size:14px;font-weight:bold">3.</span> <?php _e('Instructions Setp 3 Content', 'wechat-page-sharing'); ?><?php echo $host_name ?></p>
+            <p><span style="font-size:14px;font-weight:bold">4.</span> <?php _e('Instructions Setp 4 Content', 'wechat-page-sharing'); ?></p>
+            <p><span style="font-size:14px;font-weight:bold">5.</span> <?php _e('Instructions Setp 5 Content', 'wechat-page-sharing'); ?></p>
+            <p><?php _e('Have Fun', 'wechat-page-sharing'); ?></p>
+            <hr />
+            
              <h3><?php _e('WeChat Settings', 'wechat-page-sharing'); ?> </h3>
             <p><?php _e('WeChat AppId:', 'wechat-page-sharing'); ?> 
             <input type="text" name="<?php echo $appid_field_name; ?>" value="<?php echo $wechat_appid; ?>" size="30">
@@ -116,12 +128,12 @@ class Bosima_WeChat_Page_Sharing_Admin
             <p><?php _e('WeChat AppSecrect:', 'wechat-page-sharing'); ?> 
             <input type="text" name="<?php echo $appsecrect_field_name; ?>" value="<?php echo $wechat_appsecrect; ?>" size="40">
             </p>
-            <p><?php _e('Server Outbound IP:', 'wechat-page-sharing'); ?>
+            <!--<p><?php _e('Server Outbound IP:', 'wechat-page-sharing'); ?>
             <?php
-            $host = gethostbyname($_SERVER['SERVER_NAME']);
-            echo Bosima_WeChat::getOutIp();
+            echo $out_ip;
              ?>
             </p>
+            -->
             <hr />
             <h3><?php _e('Template Settings', 'wechat-page-sharing'); ?> </h3>
             <?php _e('Sharing Template Memo', 'wechat-page-sharing'); ?> 
