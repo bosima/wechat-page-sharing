@@ -8,8 +8,8 @@ Stable tag: 0.3.2
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
-你可以控制Wordpress页面的微信分享内容，包括Url、标题、图片和内容。
-由于我的失误，<strong>从0.2.0版本升级到其它版本后需重新配置AppId和AppSecrect</strong>。
+您可以控制Wordpress页面的分享内容，包括Url、标题、图片和描述，支持分享到微信朋友、微信朋友圈、QQ和QQ空间。
+请注意，<strong>从0.2.0版本升级后需重新配置AppId和AppSecrect</strong>。
 
 == Description ==
 
@@ -61,9 +61,11 @@ License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
 == Screenshots ==
 
-1. 基础设置和模板设置
+1. 使用说明、微信设置和模板设置
 
 2、页面上生成的微信分享代码
+
+3、分享到微信的效果
 
 == Changelog ==
 
@@ -132,5 +134,5 @@ The JS-SDK is a service.
 
 = myip.fireflysoft.net =
 http://myip.fireflysoft.net
-This plugin depends on the myip.fireflysoft.net, which can return the exit IP of the user server.
+This plugin depends on the myip.fireflysoft.net, which can return the outbound IP of the user server.
 The exit IP needs to be added to the WeChat IP whitelist.
