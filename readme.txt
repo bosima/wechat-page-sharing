@@ -69,6 +69,11 @@ License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
 == Changelog ==
 
+= 0.3.2 = 
+* 增加插件截图
+* 在插件后台增加使用说明
+* 修正错误的作者url
+
 = 0.3.1 = 
 * 增加了分享标题和描述的模板设置功能，让分享更个性化；
 * 增加了首页分享使用网站Icon的选择；
@@ -97,6 +102,10 @@ License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
 
 == Upgrade Notice ==
+
+= 0.3.2 = 
+* 增加插件截图，方便用户安装前了解插件功能
+* 在插件后台增加使用说明，方便用户尽快完成配置
 
 = 0.3.1 = 
 * 增加了分享标题和描述的模板设置功能，让分享更个性化；
