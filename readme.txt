@@ -9,7 +9,7 @@ License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
 您可以控制Wordpress页面的分享内容，包括Url、标题、图片和描述，支持分享到微信朋友、微信朋友圈、QQ和QQ空间。
-请注意，<strong>从0.2.0版本升级后需重新配置AppId和AppSecrect</strong>。
+<strong>请注意，0.2.x版本升级后需重新配置AppId和AppSecrect</strong>。
 
 == Description ==
 
