@@ -79,11 +79,10 @@ class Bosima_WeChat_Page_Sharing_Page
             $current_port = $_SERVER['SERVER_PORT'];
         }
 
-        if (!empty($current_port)) {
-            $current_url .= $_SERVER['SERVER_NAME'] . ':' . $current_port . $_SERVER['REQUEST_URI'];
-        } else {
-            $current_url .= $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'];
-        }
+        // TODO:允许后台配置主机名或者从WordPress设置中获取
+        $host = isset($_SERVER['HTTP_X_FORWARDED_HOST']) ? $_SERVER['HTTP_X_FORWARDED_HOST'] : (isset($_SERVER['HTTP_HOST']) ? $_SERVER['HTTP_HOST'] : '');
+        $current_url .= $host. $_SERVER['REQUEST_URI'];
+
         return $current_url;
     }
 
