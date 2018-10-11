@@ -80,7 +80,7 @@ class Bosima_WeChat_Page_Sharing_Admin
             // Put an settings updated message on the screen
 ?>
             <div class="updated"><p><strong><?php _e('settings saved.', 'wechat-page-sharing'); ?></strong></p></div>
- <?php
+<?php
 
         }
 
@@ -103,6 +103,11 @@ class Bosima_WeChat_Page_Sharing_Admin
         $sharing_category_title = esc_attr($config->sharing_category_title);
 
         $host_name = $_SERVER['SERVER_NAME'];
+        $host = isset($_SERVER['HTTP_X_FORWARDED_HOST']) ? $_SERVER['HTTP_X_FORWARDED_HOST'] : (isset($_SERVER['HTTP_HOST']) ? $_SERVER['HTTP_HOST'] : '');
+        if(strpos($host,':') !== false){
+            $host_name = str_split(":")[0];
+        }
+        
         $out_ip = Bosima_WeChat::getOutIp();
 
         echo '<div class="wrap">';
