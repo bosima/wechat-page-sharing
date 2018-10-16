@@ -266,10 +266,10 @@ class Bosima_WeChat_Page_Sharing_Page
         var use_icon_as_share_img = "<?php echo $use_icon_as_share_img ?>";
         var default_img_url='<?php echo $default_img_url ?>';
         var share_img_url='<?php echo $share_img_url ?>';
-        var share_desc="<?php echo $share_desc ?>";
-        var default_share_desc="<?php echo $default_share_desc ?>";
-        var share_title="<?php echo $share_title ?>";
-        var default_share_title="<?php echo $default_share_title ?>";
+        var share_desc="<?php echo str_replace("\"","\\\"",$share_desc) ?>";
+        var default_share_desc="<?php echo str_replace("\"","\\\"",$default_share_desc) ?>";
+        var share_title="<?php echo str_replace("\"","\\\"",$share_title) ?>";
+        var default_share_title="<?php echo str_replace("\"","\\\"",$default_share_title) ?>";
 
         if(share_title==""){
             share_title=jQuery("head title").text();
