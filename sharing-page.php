@@ -101,7 +101,7 @@ class Bosima_WeChat_Page_Sharing_Page
         $share_link = Bosima_WeChat_Page_Sharing_Page::curPageURL();
         $share_img_url = '';
         $share_desc = '';
-        $default_share_desc = '';
+        $default_share_desc = "想知道【" . get_bloginfo('name') . "】的更多内容吗？现在就点我吧。";
         $default_img_url = plugins_url('', __FILE__) . '/images/random/article' . rand(1, 5) . '.jpg';
         $use_icon_as_share_img = '0';
         $site_lang = explode('_', get_locale())[0];
@@ -262,6 +262,10 @@ class Bosima_WeChat_Page_Sharing_Page
                 $share_title = strtr($config->sharing_search_title, $template_vars);
             }
         }
+
+        // todo:support custom post type
+        // https://codex.wordpress.org/Post_Types#Custom_Post_Types
+        
         ?>
         var use_icon_as_share_img = "<?php echo $use_icon_as_share_img ?>";
         var default_img_url='<?php echo $default_img_url ?>';
