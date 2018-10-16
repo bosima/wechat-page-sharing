@@ -36,7 +36,7 @@ class Bosima_WeChat_Page_Sharing_Page
         }
 
         if ($config->sharing_img_option == "0" || empty($post_thumbnail)) {
-            $output = preg_match_all('/<img.+src=[\'"]([^\'"]+)[\'"].*>/i', $post_content, $matches);
+            $output = preg_match_all('/<img[^>]+?src=[\'"]([^\'"]+)[\'"].*>/i', $post_content, $matches);
             if (isset($matches[1][0]) && !empty($matches[1][0])) {
                 $post_thumbnail = $matches[1][0];
             }
