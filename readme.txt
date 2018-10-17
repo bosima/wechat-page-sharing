@@ -4,7 +4,7 @@ Donate link: http://blog.bossma.cn/
 Tags: wechat, sharing, 微信, 分享
 Requires at least: 4.4
 Tested up to: 4.9.8
-Stable tag: 0.3.2
+Stable tag: 0.3.3
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -69,6 +69,12 @@ License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
 == Changelog ==
 
+= 0.3.3 = 
+* 更改反向代理情况下获取分享链接域名的方法
+* 对分享标题和描述中的双引号进行转义
+* 修改从文章中提取图片的正则表达式
+* 在插件列表增加“设置”链接
+
 = 0.3.2 = 
 * 增加插件截图
 * 在插件后台增加使用说明
@@ -102,6 +108,12 @@ License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
 
 == Upgrade Notice ==
+
+= 0.3.3 = 
+* 修复某些部署情况下分享链接域名不正确的问题
+* 修复分享标题和描述中含有特殊字符导致分享失败的问题
+* 优化从文章中提取图片的正则表达式
+* 在插件列表增加“设置”链接，方便找到插件设置
 
 = 0.3.2 = 
 * 增加插件截图，方便用户安装前了解插件功能
