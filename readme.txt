@@ -1,10 +1,10 @@
-﻿=== Bosima WeChat Page Sharing ===
+=== Bosima WeChat Page Sharing ===
 Contributors: bossma
 Donate link: http://blog.bossma.cn/
 Tags: wechat, sharing, 微信, 分享
 Requires at least: 4.4
-Tested up to: 5.0
-Stable tag: 0.3.3
+Tested up to: 5.2.2
+Stable tag: 0.3.4
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -68,6 +68,10 @@ License URI: https://www.gnu.org/licenses/gpl-2.0.html
 3、分享到微信的效果
 
 == Changelog ==
+
+= 0.3.4 = 
+* 修改生成微信分享js的顺序，避免找不到jQuery的问题
+* 统一获取微信js签名的方式为ajax方式
 
 = 0.3.3 = 
 * 更改反向代理情况下获取分享链接域名的方法

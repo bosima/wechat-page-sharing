@@ -13,11 +13,8 @@ class Bosima_WeChat_Page_Sharing_Page
     {
         if (!self::$initiated) {
             self::$initiated = true;
-
-            if (defined('WP_CACHE') && WP_CACHE) {
-                require_once(BOSIMA_WECHAT_PAGE_SHARING__PLUGIN_DIR . 'sharing-ajax.php');
-                Bosima_WeChat_Page_Sharing_Ajax::init();
-            }
+            require_once(BOSIMA_WECHAT_PAGE_SHARING__PLUGIN_DIR . 'sharing-ajax.php');
+            Bosima_WeChat_Page_Sharing_Ajax::init();
         }
     }
 
@@ -94,11 +91,8 @@ class Bosima_WeChat_Page_Sharing_Page
         global $post, $posts;
         global $wp;
 
-        //$share_title = wp_title('|', false, 'right') . get_bloginfo('name');
-        //$share_link = home_url(add_query_arg(array(), $wp->request));
         $share_title = '';
         $default_share_title = get_bloginfo('name');
-        $share_link = Bosima_WeChat_Page_Sharing_Page::curPageURL();
         $share_img_url = '';
         $share_desc = '';
         $default_share_desc = "想知道【" . get_bloginfo('name') . "】的更多内容吗？现在就点我吧。";
@@ -274,6 +268,7 @@ class Bosima_WeChat_Page_Sharing_Page
         var default_share_desc="<?php echo str_replace("\"","\\\"",$default_share_desc) ?>";
         var share_title="<?php echo str_replace("\"","\\\"",$share_title) ?>";
         var default_share_title="<?php echo str_replace("\"","\\\"",$default_share_title) ?>";
+        var current_url=location.href.split('#')[0];
 
         if(share_title==""){
             share_title=jQuery("head title").text();
@@ -335,40 +330,48 @@ class Bosima_WeChat_Page_Sharing_Page
         wx.ready(function () {
             wx.onMenuShareTimeline({
                 title: share_title,
-                link: '<?php echo $share_link ?>',
+                link: current_url,
                 imgUrl: share_img_url
             });
 
             wx.onMenuShareAppMessage({
                 title: share_title,
                 desc: share_desc,
-                link: '<?php echo $share_link ?>',
+                link: current_url,
                 imgUrl: share_img_url
             });
 
             wx.onMenuShareQQ({
                 title: share_title,
                 desc: share_desc,
-                link: '<?php echo $share_link ?>',
+                link: current_url,
                 imgUrl: share_img_url
             });
 
             wx.onMenuShareWeibo({
                 title: share_title,
                 desc: share_desc,
-                link: '<?php echo $share_link ?>',
+                link: current_url,
                 imgUrl: share_img_url
             });
 
             wx.onMenuShareQZone({
                 title: share_title,
                 desc: share_desc,
-                link: '<?php echo $share_link ?>',
+                link: current_url,
                 imgUrl: share_img_url
             });
         });
 <?php
 
+}
+
+/**
+ * 输出引用必须的Js
+ */
+public static function render_ref_js(){
+    wp_enqueue_script('jquery');
+    wp_enqueue_script('weixin-js', 'https://res.wx.qq.com/open/js/jweixin-1.2.0.js');
 }
 
 /**
@@ -378,15 +381,12 @@ public static function render_js()
 {
     $weChat = Bosima_WeChat::getInstance();
     $config = $weChat->getWeChatConfig();
-    wp_enqueue_script('jquery');
-    wp_enqueue_script('weixin-js', 'https://res.wx.qq.com/open/js/jweixin-1.2.0.js');
     ?>
             <script>
             jQuery(document).ready(function(){
             <?php
-            if (defined('WP_CACHE') && WP_CACHE) {
                 $ajax_url = admin_url('admin-ajax.php');
-                ?>
+            ?>
                 var weChatJsSign = '';
                 var data={
                     action:'getWeChatJsSign', 
@@ -398,23 +398,6 @@ public static function render_js()
                         <?php Bosima_WeChat_Page_Sharing_Page::render_config_js($config); ?>
                     }
                 },'json');
-            <?php
-
-        } else {
-            $cur_protocol = ((isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] == 'on') || (isset($_SERVER['HTTP_X_FORWARDED_PROTO']) && $_SERVER['HTTP_X_FORWARDED_PROTO'] == 'https')) ? 'https://' : 'http://';
-            $cur_url = "$cur_protocol$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
-            $signPackage = $weChat->getSign($cur_url);
-            echo 'var weChatJsSign = ' . json_encode($signPackage) . ';';
-            ?>
-                if(weChatJsSign){
-                   <?php Bosima_WeChat_Page_Sharing_Page::render_config_js($config); ?>
-                }
-<?php
-
-}
-?>
-
-                
             });
             </script>
 <?php
