@@ -102,12 +102,6 @@ class Bosima_WeChat_Page_Sharing_Admin
         $sharing_single_title = esc_attr($config->sharing_single_title);
         $sharing_category_title = esc_attr($config->sharing_category_title);
 
-        $host_name = $_SERVER['SERVER_NAME'];
-        $host = isset($_SERVER['HTTP_X_FORWARDED_HOST']) ? $_SERVER['HTTP_X_FORWARDED_HOST'] : (isset($_SERVER['HTTP_HOST']) ? $_SERVER['HTTP_HOST'] : '');
-        if(strpos($host,':') !== false){
-            $host_name = str_split(":")[0];
-        }
-        
         $out_ip = Bosima_WeChat::getOutIp();
 
         echo '<div class="wrap">';
@@ -120,7 +114,7 @@ class Bosima_WeChat_Page_Sharing_Admin
             <h3><?php _e('Plugin Instructions', 'wechat-page-sharing'); ?> </h3>
             <p><span style="font-size:14px;font-weight:bold">1.</span> <?php _e('Instructions Setp 1 Content', 'wechat-page-sharing'); ?></p>
             <p><span style="font-size:14px;font-weight:bold">2.</span> <?php _e('Instructions Setp 2 Content', 'wechat-page-sharing'); ?><?php echo $out_ip ?></p>
-            <p><span style="font-size:14px;font-weight:bold">3.</span> <?php _e('Instructions Setp 3 Content', 'wechat-page-sharing'); ?><?php echo $host_name ?></p>
+            <p><span style="font-size:14px;font-weight:bold">3.</span> <?php _e('Instructions Setp 3 Content', 'wechat-page-sharing'); ?><script type="text/javascript">document.write(document.domain)</script></p>
             <p><span style="font-size:14px;font-weight:bold">4.</span> <?php _e('Instructions Setp 4 Content', 'wechat-page-sharing'); ?></p>
             <p><span style="font-size:14px;font-weight:bold">5.</span> <?php _e('Instructions Setp 5 Content', 'wechat-page-sharing'); ?></p>
             <p><?php _e('Have Fun', 'wechat-page-sharing'); ?></p>
