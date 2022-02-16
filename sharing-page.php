@@ -76,7 +76,6 @@ class Bosima_WeChat_Page_Sharing_Page
             $current_port = $_SERVER['SERVER_PORT'];
         }
 
-        // TODO:允许后台配置主机名或者从WordPress设置中获取
         $host = isset($_SERVER['HTTP_X_FORWARDED_HOST']) ? $_SERVER['HTTP_X_FORWARDED_HOST'] : (isset($_SERVER['HTTP_HOST']) ? $_SERVER['HTTP_HOST'] : '');
         $current_url .= $host. $_SERVER['REQUEST_URI'];
 
@@ -319,29 +318,20 @@ class Bosima_WeChat_Page_Sharing_Page
             nonceStr: weChatJsSign.nonceStr,
             signature: weChatJsSign.signature,
             jsApiList: [
-            'onMenuShareTimeline',
-                'onMenuShareAppMessage',
-                'onMenuShareQQ',
-                'onMenuShareWeibo',
-                'onMenuShareQZone',
+                'updateAppMessageShareData',
+                'updateTimelineShareData',
+                'onMenuShareWeibo'
             ]
         });
 
         wx.ready(function () {
-            wx.onMenuShareTimeline({
+            wx.updateTimelineShareData({
                 title: share_title,
                 link: current_url,
                 imgUrl: share_img_url
             });
 
-            wx.onMenuShareAppMessage({
-                title: share_title,
-                desc: share_desc,
-                link: current_url,
-                imgUrl: share_img_url
-            });
-
-            wx.onMenuShareQQ({
+            wx.updateAppMessageShareData({
                 title: share_title,
                 desc: share_desc,
                 link: current_url,
@@ -349,13 +339,6 @@ class Bosima_WeChat_Page_Sharing_Page
             });
 
             wx.onMenuShareWeibo({
-                title: share_title,
-                desc: share_desc,
-                link: current_url,
-                imgUrl: share_img_url
-            });
-
-            wx.onMenuShareQZone({
                 title: share_title,
                 desc: share_desc,
                 link: current_url,
@@ -371,7 +354,7 @@ class Bosima_WeChat_Page_Sharing_Page
  */
 public static function render_ref_js(){
     wp_enqueue_script('jquery');
-    wp_enqueue_script('weixin-js', 'https://res.wx.qq.com/open/js/jweixin-1.2.0.js');
+    wp_enqueue_script('weixin-js', 'https://res.wx.qq.com/open/js/jweixin-1.6.0.js');
 }
 
 /**
